@@ -6,24 +6,27 @@ var index = fs.readFileSync('index.html').toString();
 var skeleton = fs.readFileSync('skeleton.css');
 
 function sysinfo(){
-    //  11:15:25 up 2 days, 16 min,  0 users,  load average: 0.16, 0.03, 0.01
-    var uptime = execSync('/usr/bin/uptime').toString().trim();
-    // 35800
+    // 19:21:06 up 14 min,  0 users,  load average: 0.23, 0.38, 0.45
+    // 11:15:25 up 2 days, 16 min,  0 users,  load average: 0.16, 0.03, 0.01
+    var str = execSync('/usr/bin/uptime').toString(); 
     var temp = execSync('/bin/sh -c "cat /sys/class/thermal/thermal_zone0/temp"').toString();
     temp = Number(temp)/1000;
-    // [ key : value \n]^n
     var cpuinfo = execSync('/bin/sh -c "cat /proc/cpuinfo"').toString();
     var disks = execSync('/bin/df -h').toString();
     var memory = execSync('/usr/bin/free -h').toString();
+    
+    var ss = str.split("  ");
+    var load = ss[ss.length-1];
+    var users = ss[ss.length-2];
+    var uptime = str.replace(load,"").replace(users,"");
 
-    var ss = uptime.split("  ");
     var o = {
-        uptime : ss[0].replace(",","")+ " " + ss[1].replace(",",""),
-        users : ss[2].replace(",",""),
-        load : ss[3],
+        uptime ,
+        users ,
+        load ,
         temp,
         cpuinfo,
-        disks,
+        disks, 
         memory
     };
     return JSON.stringify(o);
