@@ -3,6 +3,7 @@
 
 ## Setup
 - install `node`
+- install `vnstat`
 - run `node pidash.js`
 
 ## Tested On
