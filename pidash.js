@@ -23,7 +23,7 @@ function sysinfo(){
     try{
         var nstr = execSync('/usr/bin/vnstat --oneline').toString();
         ss = nstr.split(";");
-        network = ss[1] + " (" + ss[2] +  ") : recieve = " + ss[3] + ", send = " + ss[4];
+        network = ss[1] + " (" + ss[2] +  ") : receive = " + ss[3] + ", send = " + ss[4];
     }catch{}
 
     var o = {
