@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RaspberryPi System Info</title>
+    <title>Pi System Info</title>
     <link rel="stylesheet" href="skeleton.css">
 </head>
 
 <body>
     <div class="container" style="margin-top: 2rem;">
-        <h1>RaspberryPi System Info</h1>
+        <h1>Pi System Info</h1>
         <div class="row">
             <div class="column">
                 <h4>Info <span id="info"></span>
@@ -43,6 +43,12 @@
                 <pre id="disks"></pre>
             </div>
         </div>
+        <div class="row">
+            <div class="column">
+                <h4>Network</h4>
+                <pre id="network"></pre>
+            </div>
+        </div>        
     </div>
 </body>
 <script>
@@ -56,6 +62,7 @@
         document.getElementById("temp").innerHTML = d.temp + " ℃";
         document.getElementById("disks").innerHTML = d.disks;
         document.getElementById("memory").innerHTML = d.memory;
+        document.getElementById("network").innerHTML = d.network;
     });
 </script>
 
