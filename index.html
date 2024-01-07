@@ -63,7 +63,7 @@
     //d=
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("cpuinfo").innerText = d.cpuinfo;
-        document.getElementById("info").innerHTML = "uptime :" + d.uptime;
+        document.getElementById("info").innerHTML = "uptime :" + d.uptime.replaceAll(",","");
         document.getElementById("load").innerHTML = d.load;
         document.getElementById("temp").innerHTML = d.temp + " ℃";
         document.getElementById("disks").innerHTML = d.disks;
