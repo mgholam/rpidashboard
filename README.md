@@ -1,5 +1,7 @@
 # Raspberry Pi Dashboard
 
+Zero dependency Raspberry Pi dashboard 
+
 
 ## Setup
 - install `node`
@@ -8,3 +10,4 @@
 
 ## Tested On
 - Pi Zero W
+- Pi B v1
