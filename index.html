@@ -13,8 +13,10 @@
         <h1>Pi System Info</h1>
         <div class="row">
             <div class="column">
-                <h4>Info <span id="info"></span>
+                <h4>Info
+                  <span id="info"></span>
                 </h4>
+                <pre id="uname"></pre>
             </div>
         </div>
         <div class="row">
@@ -58,7 +60,7 @@
     </div>
 </body>
 <script>
-    var d = { "uptime": "debug", "users": "debug", "load": "load average: debug", "temp": "debug", "cpuinfo": "debug", "disks": "debug", "memory": "debug" };
+    var d = { "uptime": "debug", "users": "debug", "load": "load average: debug", "temp": "debug", "cpuinfo": "debug", "disks": "debug", "memory": "debug", "network":"debug", "uname":"debug" };
     // placeholder for string replace
     //d=
     document.addEventListener("DOMContentLoaded", () => {
@@ -68,7 +70,8 @@
         document.getElementById("temp").innerHTML = d.temp + " ℃";
         document.getElementById("disks").innerHTML = d.disks;
         document.getElementById("memory").innerHTML = d.memory;
-        document.getElementById("network").innerHTML = d.network;
+        document.getElementById("network").innerHTML = d.ipaddr+d.network.trim();
+        document.getElementById("uname").innerHTML = d.uname;
     });
 </script>
 
